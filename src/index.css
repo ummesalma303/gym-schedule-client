@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+a.active{
+    color: rgb(202, 31, 151);
+    border: 2px solid green;
+    border-radius: 8px;
+}
