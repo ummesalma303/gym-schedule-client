@@ -11,7 +11,8 @@ const AddSchedule = () => {
             title,
             date,
             day,
-            time
+            time,
+            isCompleted:false
         };
         // console.log(scheduleData)
 
