@@ -1,7 +1,11 @@
 import React from 'react';
+import { useLoaderData } from 'react-router-dom';
 
-const AddSchedule = () => {
-    const handleAddSchedule = e => {
+const UpdateSchedule = () => {
+    const schedule = useLoaderData()
+    // console.log(data)
+    const {_id,title,date,day, time}=schedule
+    const handleUpdateSchedule= e => {
         e.preventDefault()
         const title = e.target.title.value
         const date = e.target.date.value
@@ -15,8 +19,8 @@ const AddSchedule = () => {
         };
         // console.log(scheduleData)
 
-        fetch('http://localhost:5000/schedule', {
-            method:"POST",
+        fetch(`http://localhost:5000/schedule/${_id}`, {
+            method:"PATCH",
             headers:{
                 "Content-Type":"application/json"
             },
@@ -24,7 +28,7 @@ const AddSchedule = () => {
         })
             .then(res => res.json())
         .then(data=>{
-            // console.log(data)
+            console.log(data)
             if (data.acknowledged) {
                 alert("schedule successfully added")
             }
@@ -35,13 +39,13 @@ const AddSchedule = () => {
     }
     return (
         <div className=' bg-[#F4F3F0] px-32 pt-7 pb-16'>
-            <h2 className='text-center font-bold text-4xl mb-12'>Add Gym Schedule</h2>
+            <h2 className='text-center font-bold text-4xl mb-12'>Update Gym Schedule</h2>
 
-            <form onSubmit={handleAddSchedule} className='grid grid-cols-2 gap-5 w-full'>
-                <input type="text" className=' h-12 px-5' placeholder='title' name='title' required/>
-                <input type="date" className=' h-12 px-5' name='date' required/>
+            <form onSubmit={handleUpdateSchedule} className='grid grid-cols-2 gap-5 w-full'>
+                <input type="text" className=' h-12 px-5' defaultValue={title} name='title' required/>
+                <input type="date" className=' h-12 px-5' name='date' defaultValue={date} required/>
                 
-                <select className="input input-bordered " name="day" id="day" required>
+                <select className="input input-bordered " name="day" id="day" defaultValue={day} required>
                 <option value="sunday">Sunday</option>
                 <option value="monday">Monday</option>
                 <option value="tuesday">Tuesday</option>
@@ -51,11 +55,11 @@ const AddSchedule = () => {
                 <option value="saturday">Saturday</option>
                 </select>
                 
-                <input type="time" className=' h-12 px-5' placeholder='title' name='time' required/>
+                <input type="time" className=' h-12 px-5' defaultValue={time} name='time' required/>
                 <button className='btn col-span-2 bg-pink-500 text-white' type='submit'>Submit</button>
             </form>
         </div>
     );
 };
 
-export default AddSchedule;
+export default UpdateSchedule;
