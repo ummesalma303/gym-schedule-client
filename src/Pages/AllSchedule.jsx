@@ -12,7 +12,7 @@ const AllSchedule = () => {
 
   // }
   useEffect(()=>{
-    fetch(`http://localhost:5000/schedule?searchParams=${search}`)
+    fetch(`https://gym-schedule-server-delta.vercel.app/schedule?searchParams=${search}`)
     .then(res=>res.json())
     .then(data=>{
       // console.log(data)}

@@ -11,7 +11,7 @@ const ScheduleTable = ({ schedule, idx, schedules, setSchedules }) => {
 // delete feature
   const deleteSchedule = (id) => {
     // console.log(id)
-    fetch(`http://localhost:5000/schedule/${id}`, {
+    fetch(`https://gym-schedule-server-delta.vercel.app/schedule/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -32,7 +32,7 @@ const ScheduleTable = ({ schedule, idx, schedules, setSchedules }) => {
 
 
   const handleComplete=(id)=>{
-    fetch(`http://localhost:5000/status/${id}`, {
+    fetch(`https://gym-schedule-server-delta.vercel.app/status/${id}`, {
         method:"PATCH",
     })
         .then(res => res.json())

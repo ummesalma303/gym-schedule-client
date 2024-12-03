@@ -16,7 +16,7 @@ const AddSchedule = () => {
         };
         // console.log(scheduleData)
 
-        fetch('http://localhost:5000/schedule', {
+        fetch('https://gym-schedule-server-delta.vercel.app/schedule', {
             method:"POST",
             headers:{
                 "Content-Type":"application/json"

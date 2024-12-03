@@ -24,12 +24,12 @@ const router = createBrowserRouter([
             {
                 path: '/allSchedule',
                 element:<AllSchedule></AllSchedule>,
-                loader:()=>fetch('http://localhost:5000/schedule')
+                loader:()=>fetch('https://gym-schedule-server-delta.vercel.app/schedule')
           },
             {
                 path: '/schedule/:id',
                 element:<UpdateSchedule></UpdateSchedule>,
-                loader:({params})=>fetch(`http://localhost:5000/schedule/${params.id}`)
+                loader:({params})=>fetch(`https://gym-schedule-server-delta.vercel.app/schedule/${params.id}`)
           },
       ]
     },

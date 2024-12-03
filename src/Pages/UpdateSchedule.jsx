@@ -19,7 +19,7 @@ const UpdateSchedule = () => {
         };
         // console.log(scheduleData)
 
-        fetch(`http://localhost:5000/schedule/${_id}`, {
+        fetch(`https://gym-schedule-server-delta.vercel.app/schedule/${_id}`, {
             method:"PATCH",
             headers:{
                 "Content-Type":"application/json"
